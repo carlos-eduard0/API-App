@@ -15,7 +15,6 @@ const EmpSchema = new mongoose.Schema({
 		number: Number,
 		complemento: String
 	},
-	id: Number,
 	location: {
 		type: PointSchema,
 		index: '2dsphare'
