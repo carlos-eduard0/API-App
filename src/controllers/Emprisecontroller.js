@@ -9,7 +9,7 @@ module.exports = {
     },   
 
     async cadastro(request, response) {
-        const { name, name_presidente, cnpj, telefone, celular, email, data_criacao, rua, bairro, number, complemento, id, latitude, longitude, services}
+        const { name, name_presidente, cnpj, telefone, celular, email, data_criacao, rua, bairro, number, complemento, latitude, longitude, services}
 
         const servicesArray = parseStringasArray(services);
 
