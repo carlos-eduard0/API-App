@@ -13,13 +13,13 @@ const EmpSchema = new mongoose.Schema({
 		rua: String,
 		bairro: String,
 		number: Number,
-		complemento: String
+		complemento: String,
 	},
 	location: {
 		type: PointSchema,
-		index: '2dsphare'
+		indexes: '2dsphare',
 	},
-	services: [String]
+	services: [String],
 });
 
 module.exports = mongoose.model('Emp', EmpSchema);

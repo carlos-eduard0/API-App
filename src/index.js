@@ -5,11 +5,10 @@ const routes = require("./routes")
 
 const app = express();
 
-mongoose.connect('', {
+mongoose.connect('mongodb+srv://ronan:laurindo70@cluster0-p5jhr.mongodb.net/empresas?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-
 app.use(cors());
 app.use(express.json());
 app.use(routes);
