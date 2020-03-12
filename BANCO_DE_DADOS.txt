@@ -1,0 +1,5 @@
+create database API_App;
+
+use Api_app;
+
+create table Empresas(id_empresa integer not null, name_empresa varchar(50), name_presidente varchar(50), cnpj integer not null, telefone varchar(11), email varchar(20), data_criacao date, endereco varchar(30), location integer, services varchar(50), primary key(id_empresa));

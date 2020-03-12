@@ -1,2 +1,2 @@
 # API
-API a seu utilizada no app 
+API a ser utilizada no app 
