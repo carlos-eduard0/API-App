@@ -4,9 +4,11 @@ const consign = require("consign");
 var bodyParser=require('body-parser');
 const app = express();
 
+app.use(express.static('../app/views'));
 app.set('views', path.join(__dirname, '../app/views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+// app.engine('html', require('ejs').renderFile);
+app.set('view engine','ejs');
+// app.set('views','./app/views');
 
 app.use(bodyParser.urlencoded({extended:true}));
 
