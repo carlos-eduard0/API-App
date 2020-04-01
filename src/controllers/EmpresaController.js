@@ -11,13 +11,9 @@ module.exports = {
     },
 
     async create(req, res) {
-        const { email, nome_empresa, senha, confirmar_senha } = req.body;
+        const { nome_empresa, email, senha, confirmar_senha } = req.body;
 
         const id = crypto.randomBytes(4).toString('HEX');
-
-        const servicoss = ["teste1", "teste2", "teste"];
-
-        const servicosArray = servicoss;
 
         if (senha != confirmar_senha) {
             return res.json({ mensagem: 'As senhas não estão corretas' });
@@ -25,12 +21,11 @@ module.exports = {
 
         await connection('empresa').insert({
             id,
-            email,
             nome_empresa,
+            email,
             senha,
-            servicos: { servicosArray },
         });
-        return res.json({ id, confirmar_senha, servicosArray });
+        return res.json({ id, confirmar_senha });
     },
 
 }
