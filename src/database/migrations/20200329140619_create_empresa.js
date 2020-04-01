@@ -4,7 +4,6 @@ exports.up = function(knex) {
         table.string('email').notNullable();
         table.string('nome_empresa').notNullable();
         table.string('senha').notNullable();
-        table.string('servicos').notNullable();
     });
 };
 
