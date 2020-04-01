@@ -1,3 +1,4 @@
+require("dotenv").config();
 // Update with your config settings.
 
 module.exports = {
@@ -6,13 +7,13 @@ module.exports = {
     client: 'pg',
     version: '12.2',
     connection: {
-      host : "127.0.0.1",
-      user : 'postgres',
-      password : 'laurindo70',
-      database : 'postgres',
+      host : process.env.BD_HOST, 
+      user : process.env.BD_USER,  
+      password : process.env.BD_PASS, 
+      database : process.env.BD_DATA, 
   },
     migrations: {
-      directory: "./src/database/migrations"
+      directory: "./src/database/migrations", ///BD_DIR
     },
     useNullAsDefault: true,
   },
