@@ -5,7 +5,7 @@ const rotas = require('./routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({origin:process.env.FRONT_END_URL || 3000}));
 app.use(express.json());
 app.use(rotas);
 
