@@ -5,7 +5,7 @@ const rotas = require('./routes');
 
 const app = express();
 
-app.use(cors({origin:process.env.FRONT_END_URL}));
+app.use(cors({origin:'https://engine-frontend.herokuapp.com/'}));
 app.use(express.json());
 app.use(rotas);
 
