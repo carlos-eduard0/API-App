@@ -8,17 +8,17 @@ module.exports = {
           host: '127.0.0.1',
           user: process.env.TODO_DB_USER,
           password: process.env.TODO_DB_PW,
-          database: 'todos_test'
+          database: 'engine'
       },
       migrations: {
-          directory: './src/database/migrations',
+          directory: __dirname + './src/database/migrations',
       },
   },
   production: {
       client: 'pg',
       connection: process.env.DATABASE_URL,
       migrations: {
-        directory: './src/database/migrations',
+          directory: __dirname + './src/database/migrations',
       },
   },
 };
