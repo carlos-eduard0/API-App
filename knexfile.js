@@ -7,6 +7,7 @@ module.exports = {
     client: 'pg',
     version: '12.2',
     connection: {
+      DATABASE_URL: process.env.DATABASE_URL,
       host : process.env.BD_HOST, 
       user : process.env.BD_USER,  
       password : process.env.BD_PASS, 

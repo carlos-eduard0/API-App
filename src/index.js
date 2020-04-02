@@ -5,7 +5,7 @@ const rotas = require('./routes');
 
 const app = express();
 
-app.use(cors({ origin: 'http://www.engine-app.com' }));
+app.use(cors());
 app.use(express.json());
 app.use(rotas);
 
@@ -13,4 +13,4 @@ app.use(rotas);
 
 
 
-app.listen(7070);
+app.listen(process.env.PORT || 7070);
