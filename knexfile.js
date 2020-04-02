@@ -11,14 +11,14 @@ module.exports = {
           database: 'engine'
       },
       migrations: {
-          directory: __dirname + './src/database/migrations',
+          directory:'./src/database/migrations',
       },
   },
   production: {
       client: 'pg',
       connection: process.env.DATABASE_URL,
       migrations: {
-          directory: __dirname + './src/database/migrations',
+          directory:'./src/database/migrations',
       },
   },
 };
