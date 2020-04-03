@@ -6,7 +6,7 @@ const rotas = require('./routes');
 const app = express();
 
 app.use(cors({
-    origin: 'https://www.engine-app.com/',
+    origin: ['https://www.engine-app.com/', 'https://www.engine-app.com/cadastro'],
     methods:['GET', 'POST']
 }));
 app.use(express.json());
