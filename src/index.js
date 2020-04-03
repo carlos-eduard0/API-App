@@ -5,7 +5,10 @@ const rotas = require('./routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://www.engine-app.com/',
+    methods:['GET', 'POST']
+}));
 app.use(express.json());
 app.use(rotas);
 
