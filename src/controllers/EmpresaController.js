@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const bcrypt = require('bcrypt');   
 const connection = require('../database/connection');
 
 module.exports = {
@@ -16,6 +17,10 @@ module.exports = {
 
             const id = crypto.randomBytes(4).toString('HEX');
 
+            const saltRounds = 10
+            const salt = bcrypt.genSaltSync(saltRounds);
+            const hash = bcrypt.hashSync(senha, salt);
+
             if (senha != confirmar_senha) {
                 return res.send({ message: 'senhas não conferem' });
             }
@@ -24,11 +29,14 @@ module.exports = {
                 id,
                 nome_empresa,
                 email,
-                senha,
+                senha:hash,
             });
             return res.status(200).send({ message: "cadastrado", id })
         } catch (error) {
             return res.status(400).send({ error: 'alguma coisa errada' });
         }
+
+
+        
     }
 }
