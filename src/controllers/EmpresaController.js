@@ -5,7 +5,7 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(req, res) {
-        const empresa = await connection('empresa').select('*');
+        const empresa = await connection('empresas').select('*');
 
 
         return res.json(empresa);
@@ -13,7 +13,7 @@ module.exports = {
 
     async create(req, res) {
         try {
-            const { nome_empresa, email, senha, confirmar_senha } = req.body;
+            const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento, nome_banco, agencia, conta, digito } = req.body;
 
             const id = crypto.randomBytes(4).toString('HEX');
 
@@ -25,13 +25,35 @@ module.exports = {
                 return res.send({ message: 'senhas não conferem' });
             }
 
-            await connection('empresa').insert({
+            await connection('empresas').insert({
                 id,
+                nome_dono: nome,
                 nome_empresa,
                 email,
+                telefone,
+                cpf,
+                cnpj,
+                rg,
+                orgao_emissor,
+                cep,
+                cidade,
+                uf,
+                bairro,
+                endereco,
+                numero,
+                complemento,
                 senha:hash,
             });
-            return res.status(200).send({ message: "cadastrado", id })
+
+            await connection('dados_bancarios').insert({
+                nome_banco,
+                agencia,
+                conta,
+                digito,
+                id_empresa: id,
+            })
+
+            return res.status(200).send({ message: "cadastrado", id });
         } catch (error) {
             return res.status(400).send({ error: 'alguma coisa errada' });
         }
