@@ -13,7 +13,7 @@ module.exports = {
 
     async create(req, res) {
         try {
-            const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento, nome_banco, agencia, conta, digito } = req.body;
+            const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento} = req.body;
 
             const id = crypto.randomBytes(4).toString('HEX');
 
@@ -45,14 +45,7 @@ module.exports = {
                 senha:hash,
             });
 
-            await connection('dados_bancarios').insert({
-                nome_banco,
-                agencia,
-                conta,
-                digito,
-                id_empresa: id,
-            })
-
+         
             return res.status(200).send({ message: "cadastrado", id });
         } catch (error) {
             return res.status(400).send({ error: 'alguma coisa errada' });
