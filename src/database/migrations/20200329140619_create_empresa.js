@@ -4,7 +4,7 @@ exports.up = function(knex) {
         table.string('nome_dono').notNullable();
         table.string('nome_empresa').notNullable();
         table.string('email').notNullable();
-        table.string('telefone', 14).notNullable();
+        table.string('telefone').notNullable();
         table.string('cpf', 15).notNullable();
         table.string('cnpj', 19).notNullable();  
         table.string('rg').notNullable();
