@@ -17,6 +17,10 @@ exports.up = function(knex) {
         table.string('numero').notNullable();
         table.string('complemento').notNullable();
         table.string('senha').notNullable();
+        table.string('nome_banco').notNullable();
+        table.string('agencia').notNullable();
+        table.string('conta').notNullable();
+        table.string('digito').notNullable();
     });
 };
 

@@ -47,7 +47,6 @@ module.exports = {
                 agencia,
                 conta,
                 digito,
-                id_empresa: id,
             });
             return res.status(200).send({ message: "cadastrado", id });
         } catch (error) {
