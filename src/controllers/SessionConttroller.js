@@ -7,7 +7,7 @@ module.exports = {
         const salt = bcrypt.genSaltSync(saltRounds);
         const { email, senha} = req.body;
 
-        const empresa = await connection('empresa')
+        const empresa = await connection('empresas')
         .where('email', email)
         .select('*')
         .first();
