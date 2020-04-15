@@ -25,6 +25,13 @@ module.exports = {
                 return res.send({ message: 'senhas não conferem' });
             }
 
+            const empresa = await connection('empresas')
+                .where('nome_empresa', nome_empresa)
+                .select('*')
+                .first();
+
+            if(!empresa) {
+
             await connection('empresas').insert({
                 id,
                 nome_dono: nome,
@@ -48,7 +55,11 @@ module.exports = {
                 conta,
                 digito,
             });
+
             return res.status(200).send({ message: "cadastrado", id });
+            } else {
+                return res.status(200).send({ message: "Empresa ja cadastrada"});    
+            }
         } catch (error) {
             return res.status(400).send({ error: 'alguma coisa errada' });
         }
