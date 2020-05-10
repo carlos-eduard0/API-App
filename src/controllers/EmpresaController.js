@@ -61,10 +61,23 @@ module.exports = {
                 return res.status(200).send({ message: "Empresa ja cadastrada"});    
             }
         } catch (error) {
+            console.log(error);
             return res.status(400).send({ error: 'alguma coisa errada' });
+        }   
+    },
+
+    async get_user(req, res){
+        const {id} = req.body;
+
+        const empresa = await connection('empresas')
+            .where('id', id)
+            .select('*')
+            .first();
+
+        if(empresa){
+            return res.json(empresa);
+        } else {
+            return res.status(404).send({ error: 'not found' });
         }
-
-
-        
     }
 }
