@@ -5,7 +5,11 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(req, res) {
-        const empresa = await connection('empresas').select('*');
+        const id = req.headers.authorization;
+        const empresa = await connection('empresas')
+        .where('id', id)
+        .select('*')
+        .first();
 
 
         return res.json(empresa);
@@ -23,10 +27,16 @@ module.exports = {
 
             if (senha != confirmar_senha) {
                 return res.send({ message: 'senhas não conferem' });
+            }else
+            if(senha.length < 8){
+                return res.send({ message: 'senhas muito curta' });
             }
 
             const empresa = await connection('empresas')
                 .where('nome_empresa', nome_empresa)
+                .select('*')
+                .first() || await connection('empresas')
+                .where('email', email)
                 .select('*')
                 .first();
 
