@@ -18,7 +18,8 @@ module.exports = {
 
 		const empresa = await connection('empresas')
         .where('email', email)
-        .select('*');
+        .select('*')
+        .first();
 
         if(!empresa) {
             res.status(403).send({
