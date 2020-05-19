@@ -22,7 +22,7 @@ module.exports = {
         .first();
 
         if(!empresa) {
-            res.status(400).send({
+            res.status(403).send({
             	message: 'email não cadastrado'
             });
             return;
@@ -46,7 +46,7 @@ module.exports = {
 		    from: '"Equipe Engine" <oculoslegais10@gmail.com>',
 		    to: email,
 		    subject: "Mudança de senha",
-		    html: "<h1>https://engine-frontend.herokuapp.com/codigo/senha/"+token+"</h1>"
+		    html: "<h1>http://localhost:3000/codigo/senha/"+token+"</h1>"
 		}
 
 		transporter.sendMail(mailOptions, function(err, info){
