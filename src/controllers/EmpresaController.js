@@ -26,9 +26,11 @@ module.exports = {
             const hash = bcrypt.hashSync(senha, salt);
 
             if (senha != confirmar_senha) {
+                console.log('senhas nao conferem');
                 return res.send({ message: 'senhas não conferem' });
             }else
             if(senha.length < 8){
+                console.log('senha muito curta');
                 return res.send({ message: 'senhas muito curta' });
             }
 
@@ -66,8 +68,10 @@ module.exports = {
                 digito,
             });
 
+            console.log(nome_empresa)
             return res.status(200).send({ message: "cadastrado", id });
             } else {
+                console.log('empresa ja cadastrada');
                 return res.status(200).send({ message: "Empresa ja cadastrada"});    
             }
         } catch (error) {
