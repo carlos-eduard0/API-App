@@ -6,7 +6,7 @@ const rotas = require('./routes');
 const app = express();
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://engine-company.com");
+    res.header("Access-Control-Allow-Origin", ["https://engine-company.com/login"] );
     res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
     app.use(cors());
     next();
