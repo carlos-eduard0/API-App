@@ -5,12 +5,8 @@ const rotas = require('./routes');
 
 const app = express();
 
-app.use(cors({
-    "Access-Control-Allow-Origin":"*",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204,
-    "Access-Control-Allow-Methods": 'GET,HEAD,PUT,PATCH,POST,DELETE',
-}));
+app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 app.use(rotas);
 
