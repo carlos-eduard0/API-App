@@ -17,6 +17,10 @@ module.exports = {
 
     async create(req, res) {
         try {
+            const { originalname: name, size, key, location: url = '' } = req.file;
+
+                const url_imagem = `${process.env.APP_URL}/file/${key}`;
+
             const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento, nome_banco, agencia, conta, digito } = req.body;
 
             const id = crypto.randomBytes(4).toString('HEX');
@@ -66,9 +70,10 @@ module.exports = {
                 agencia,
                 conta,
                 digito,
+                url_imagem,
             });
 
-            console.log(nome_empresa)
+            console.log(nome_empresa, url_imagem);
             return res.status(200).send({ message: "cadastrado", id });
             } else {
                 console.log('empresa ja cadastrada');
