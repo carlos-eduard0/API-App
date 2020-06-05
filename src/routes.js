@@ -1,6 +1,7 @@
 // router, express;
 const express =  require('express');
-const MulterConfig = require('../config/multer');
+const multer = require("multer");
+const MulterConfig = require('./config/multer');
 
 const rotas = express.Router();
 
