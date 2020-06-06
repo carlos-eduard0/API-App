@@ -1,5 +1,7 @@
 // router, express;
 const express =  require('express');
+const multer = require("multer");
+const MulterConfig = require('./config/multer');
 
 const rotas = express.Router();
 
@@ -8,7 +10,7 @@ const SessionController = require('./controllers/SessionConttroller');
 const EmailController = require('./controllers/EmailController');
 const ServicosController = require('./controllers/ServicosController');
 
-rotas.post('/empresa', EmpresasController.create);
+rotas.post('/empresa', multer(MulterConfig).single('file'), EmpresasController.create);
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 
