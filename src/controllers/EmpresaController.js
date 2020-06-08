@@ -17,9 +17,8 @@ module.exports = {
 
     async create(req, res) {
         try {
-            const { originalname: name, size, key, location: url = '' } = req.file;
+            const { originalname: name, size, key, location: url_imagem = '' } = req.file;
 
-                const url_imagem = `${process.env.APP_URL}/file/${key}`;
 
             const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento, nome_banco, agencia, conta, digito } = req.body;
 
