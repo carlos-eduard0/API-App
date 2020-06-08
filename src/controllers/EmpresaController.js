@@ -22,11 +22,9 @@ module.exports = {
 
             const { nome, senha, confirmar_senha, nome_empresa, 
                 email, telefone, cpf, cnpj, rg, orgao_emissor, 
-                cep, cidade, uf, bairro, endereco, numero, 
-                complemento, nome_banco, agencia, conta, 
+                cidade, uf, nome_banco, agencia, conta, 
                 digito, latitude, longitude } = req.body;
 
-            const contaa = '12344';
 
             const id = crypto.randomBytes(4).toString('HEX');
 
@@ -63,13 +61,8 @@ module.exports = {
                 cnpj,
                 rg,
                 orgao_emissor,
-                cep,
                 cidade,
                 uf,
-                bairro,
-                endereco,
-                numero,
-                complemento,
                 senha:hash,
                 nome_banco,
                 agencia,

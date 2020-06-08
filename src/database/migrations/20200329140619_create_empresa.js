@@ -9,13 +9,8 @@ exports.up = function(knex) {
         table.string('cnpj', 19).notNullable();  
         table.string('rg').notNullable();
         table.string('orgao_emissor').notNullable();      
-        table.string('cep', 9).notNullable();
         table.string('cidade').notNullable();
         table.string('uf', 2).notNullable();
-        table.string('bairro').notNullable();
-        table.string('endereco').notNullable();
-        table.string('numero').notNullable();
-        table.string('complemento').notNullable();
         table.string('senha').notNullable();
         table.string('nome_banco').notNullable();
         table.string('agencia').notNullable();
