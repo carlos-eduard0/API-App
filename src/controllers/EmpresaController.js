@@ -20,7 +20,13 @@ module.exports = {
             const { originalname: name, size, key, location: url_imagem = '' } = req.file;
 
 
-            const { nome, senha, confirmar_senha, nome_empresa, email, telefone, cpf, cnpj, rg, orgao_emissor, cep, cidade, uf, bairro, endereco, numero, complemento, nome_banco, agencia, conta, digito } = req.body;
+            const { nome, senha, confirmar_senha, nome_empresa, 
+                email, telefone, cpf, cnpj, rg, orgao_emissor, 
+                cep, cidade, uf, bairro, endereco, numero, 
+                complemento, nome_banco, agencia, conta, 
+                digito, latitude, longitude } = req.body;
+
+            const contaa = '12344';
 
             const id = crypto.randomBytes(4).toString('HEX');
 
@@ -70,6 +76,8 @@ module.exports = {
                 conta,
                 digito,
                 url_imagem,
+                latitude,
+                longitude,
             });
 
             console.log(nome_empresa, url_imagem);
