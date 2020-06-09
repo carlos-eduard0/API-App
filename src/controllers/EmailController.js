@@ -46,7 +46,7 @@ module.exports = {
 		    from: '"Equipe Engine" <oculoslegais10@gmail.com>',
 		    to: email,
 		    subject: "Mudança de senha",
-		    html: "<h1>http://localhost:3000/codigo/senha/"+token+"</h1>"
+		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
 		}
 
 		transporter.sendMail(mailOptions, function(err, info){
