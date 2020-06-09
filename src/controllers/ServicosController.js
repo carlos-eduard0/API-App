@@ -38,7 +38,6 @@ module.exports = {
             valor_servico,
             descricao, 
             categoria,
-            numero_vagas,
             id_empresa,
         });
         return res.status(200).send({ message: "Serviço Cadastrado"});

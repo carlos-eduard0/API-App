@@ -5,7 +5,6 @@ exports.up = function(knex) {
         table.string('valor_servico').notNullable();
         table.string('descricao').notNullable();
         table.string('categoria').notNullable();
-        table.string('numero_vagas').notNullable(); 
 
         table.string('id_empresa').notNullable();
 
