@@ -14,7 +14,8 @@ rotas.post('/empresa', multer(MulterConfig).single('file'), EmpresasController.c
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 
-rotas.post('/reset/email', EmailController.index);
+rotas.put('/reset/email', EmailController.forgot);
+// rotas.post('/reset/email', EmailController.index);
 rotas.post('/reset/token', SessionController.check_token);
 rotas.post('/reset/password', SessionController.reset_password);
 rotas.post('/sessions', SessionController.login);
