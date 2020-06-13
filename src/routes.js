@@ -14,6 +14,10 @@ rotas.post('/empresa', multer(MulterConfig).single('file'), EmpresasController.c
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 
+rotas.get('/teste', (req, res) => {
+	return res.json({message: 'testando'})
+});
+
 rotas.put('/reset/email', EmailController.forgot);
 // rotas.post('/reset/email', EmailController.index);
 rotas.post('/reset/token', SessionController.check_token);
