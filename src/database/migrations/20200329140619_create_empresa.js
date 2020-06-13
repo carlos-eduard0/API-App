@@ -11,6 +11,13 @@ exports.up = function(knex) {
         table.string('orgao_emissor').notNullable();      
         table.string('cidade').notNullable();
         table.string('uf', 2).notNullable();
+        table.string('bairro').notNullable();
+        table.string('cep').notNullable();
+        table.string('numero').notNullable();
+        table.string('rua').notNullable();
+        table.string('complemento');
+        table.decimal('latitude').notNullable();
+        table.decimal('longitude').notNullable();
         table.string('senha').notNullable();
         table.string('nome_banco').notNullable();
         table.string('agencia').notNullable();
