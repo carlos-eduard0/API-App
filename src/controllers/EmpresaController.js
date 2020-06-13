@@ -5,14 +5,14 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(req, res) {
-        const id = req.headers.authorization;
+        // const id = req.headers.authorization;
         const empresa = await connection('empresas')
-        .where('id', id)
-        .select('*')
-        .first();
+        // .where('id', id)
+        .select('*');
+        // .first();
 
 
-        return res.json(empresa);
+        return res.json({teste: empresa, message:'aaaa'});
     },
 
     async create(req, res) {
