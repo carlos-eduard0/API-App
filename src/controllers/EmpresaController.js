@@ -10,11 +10,11 @@ module.exports = {
         
         const empresa = await connection('empresas')
         .where('id', id)
-        .select('*');
+        .select('*')
         .first();
 
 
-        return res.json({teste: empresa, message:'aaaa'});
+        return res.json({ empresa });
     },
 
     async create(req, res) {
@@ -76,7 +76,7 @@ module.exports = {
                 digito,
             });
 
-            console.log(nome_empresa, url_imagem);
+            console.log(nome_empresa);
             return res.status(200).send({ message: "cadastrado", id });
             } else {
                 console.log('empresa ja cadastrada');
