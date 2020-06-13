@@ -5,53 +5,6 @@ const sendEmail = require('../config/email');
 
 module.exports = {
 
-	// async index(req, res){
-
-	// 	const {email} = req.body;
-
-	// 	const empresa = await connection('empresas')
- //        .where('email', email)
- //        .select('*')
- //        .first();
-
- //        if(!empresa) {
- //            res.status(403).send({
- //            	message: 'email não cadastrado'
- //            });
- //            return;
- //        }
-
-
-
-	// 	// console.log(today);
-
- //        const token = crypto.randomBytes(20).toString('HEX');
-
- //        const att = await connection('empresas')
- //        .where('email', email)
- //        .update({
-	// 	    updateCode: token,
-	// 	    updateCode_expires: today
-	//   	});
-
-	// 	var mailOptions = {
-	// 	    from: '"Equipe Engine" <oculoslegais10@gmail.com>',
-	// 	    to: email,
-	// 	    subject: "Mudança de senha",
-	// 	    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
-	// 	}
-
-	// 	transporter.sendMail(mailOptions, function(err, info){
-	// 	    if(err){
-	// 	        console.log(err);
-	// 	    }else{
-	// 	        console.log("Mensagem enviada com sucesso");
- //            	res.status(200).json('email enviado')
-	// 	    }
-	// 	});
-		
-	// },
-
 	async forgot(req, res){
 		// const {email} = req.body
   //       const token = crypto.randomBytes(20).toString('HEX');
@@ -75,7 +28,7 @@ module.exports = {
   //       	return res.json({message:'erro'});
   //       } else {
   //       	sendEmail.enviar(emailData);
-        	// return res.status(200).json({message:'email enviado'});
+  //       	return res.status(200).json({message:'email enviado'});
   //       }
 
   	return res.json({message:'email enviado'});
