@@ -28,7 +28,7 @@ module.exports = {
         	return res.json({message:'erro'});
         } else {
        		sendEmail.enviar(emailData);
-        	return res.status(200).json({message:'email enviado'});
+        	return res.json({message:'email enviado'});
         }
 
 	}
