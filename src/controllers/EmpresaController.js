@@ -6,11 +6,12 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(req, res) {
-        // const id = req.headers.authorization;
+        const id = req.headers.authorization;
+        
         const empresa = await connection('empresas')
-        // .where('id', id)
+        .where('id', id)
         .select('*');
-        // .first();
+        .first();
 
 
         return res.json({teste: empresa, message:'aaaa'});
