@@ -77,8 +77,8 @@ module.exports = {
   //       	sendEmail.enviar(emailData);
         	// return res.status(200).json({message:'email enviado'});
   //       }
-  
-  	return res.status(200).json({message:'email enviado'});
+
+  	return res.json({message:'email enviado'});
 
 	}
 }
