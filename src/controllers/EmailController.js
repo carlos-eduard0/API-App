@@ -33,7 +33,7 @@ module.exports = {
         	}
         	catch(err){
         		console.log(err);
-        		return res.json({message:err.message});
+        		return res.json({message:'deu muito errado'});
         	}
         }
 
