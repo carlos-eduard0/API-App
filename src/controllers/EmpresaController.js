@@ -1,3 +1,4 @@
+
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');   
 const connection = require('../database/connection');
@@ -17,14 +18,11 @@ module.exports = {
 
     async create(req, res) {
         try {
-            const { originalname: name, size, key, location: url_imagem = '' } = req.file;
-
 
             const { nome, senha, confirmar_senha, nome_empresa, 
                 email, telefone, cpf, cnpj, rg, orgao_emissor, 
-                cidade, uf, nome_banco, agencia, conta, 
-                digito, latitude, longitude } = req.body;
-
+                cidade, uf,latitude, longitude, bairro, cep, numero, rua, complemento, nome_banco, agencia, conta, 
+                digito } = req.body;
 
             const id = crypto.randomBytes(4).toString('HEX');
 
@@ -63,14 +61,18 @@ module.exports = {
                 orgao_emissor,
                 cidade,
                 uf,
+                bairro,
+                cep,
+                numero,
+                rua,
+                complemento,
+                latitude,
+                longitude,
                 senha:hash,
                 nome_banco,
                 agencia,
                 conta,
                 digito,
-                url_imagem,
-                latitude,
-                longitude,
             });
 
             console.log(nome_empresa, url_imagem);
