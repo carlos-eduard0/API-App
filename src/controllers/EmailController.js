@@ -23,14 +23,16 @@ module.exports = {
 		    updateCode: token,
 		    updateCode_expires: today
 	  	});      	
+        
+        return res.json({message:'email enviado'});  
 
-        try{
+        // try{
             // sendEmail.enviar(emailData);
-            return res.json({message:'email enviado'});  
-        }
-        catch(err){
-            return res.json({message:'erro'});  
-        }
+            // return res.json({message:'email enviado'});  
+        // }
+        // catch(err){
+        //     return res.json({message:'erro'});  
+        // }
 
 	}
 }
