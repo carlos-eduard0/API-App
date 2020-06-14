@@ -17,12 +17,16 @@ module.exports = {
 		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
         };
 
-        const att = await connection('empresas')
+    //     const att = await connection('empresas')
+    //     .where('email', email)
+    //     .update({
+		  //   updateCode: token,
+		  //   updateCode_expires: today
+	  	// });      	
+
+        const empresa = await connection('empresas')
         .where('email', email)
-        .update({
-		    updateCode: token,
-		    updateCode_expires: today
-	  	});      	
+        .select('*');
 
         return res.json({message:'email enviado', email:empresa});  
 
