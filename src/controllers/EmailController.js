@@ -29,7 +29,7 @@ module.exports = {
         // .select('*')
         // .first();
 
-        return res.json({message:'email enviado'});  
+        // return res.json({message:'email enviado'});  
 
         try{
             sendEmail.enviar(emailData);
