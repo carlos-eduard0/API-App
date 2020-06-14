@@ -9,9 +9,9 @@ module.exports = {
         const id = req.headers.authorization;
         
         const empresa = await connection('empresas')
-        .where('id', id)
-        .select('*')
-        .first();
+        // .where('id', id)
+        .select('*');
+        // .first();
 
 
         return res.json({ empresa });
