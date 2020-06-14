@@ -17,18 +17,19 @@ module.exports = {
 		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
         };
 
-    //     const att = await connection('empresas')
-    //     .where('email', email)
-    //     .update({
-		  //   updateCode: token,
-		  //   updateCode_expires: today
-	  	// });      	
-
-        const empresa = await connection('empresas')
+        const att = await connection('empresas')
         .where('email', email)
-        .select('*');
+        .update({
+		    updateCode: token,
+		    updateCode_expires: today
+	  	});      	
 
-        return res.json({message:'email enviado', email:empresa});  
+        // const empresa = await connection('empresas')
+        // .where('email', email)
+        // .select('*')
+        // .first();
+
+        return res.json({message:'email enviado', att:att});  
 
         // try{
             // sendEmail.enviar(emailData);
