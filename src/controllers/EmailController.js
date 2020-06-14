@@ -11,11 +11,11 @@ module.exports = {
         const date = new Date();
 		const today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+(date.getDate()+1);
 
-    //     const emailData = {
-    //     	to: email,
-		  //   subject: "Mudança de senha",
-		  //   html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
-    //     };
+        const emailData = {
+        	to: email,
+		    subject: "Mudança de senha",
+		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
+        };
 
     //     const att = await connection('empresas')
     //     .where('email', email)
