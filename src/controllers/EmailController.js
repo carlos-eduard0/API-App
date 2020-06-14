@@ -3,8 +3,8 @@ const connection = require('../database/connection');
 const nodemailer = require("nodemailer");
 
 const auth = {
-    user: 'oculoslegais10@gmail.com',
-    pass: 'marchaparamordor'
+    user: 'engine.reset@gmail.com',
+    pass: 'turing123'
 };
 
 const defaultEmailConfig = {
