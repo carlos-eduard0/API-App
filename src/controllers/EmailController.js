@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
+const nodemailer = require("nodemailer");
 // const sendEmail = require('../config/email');
 
 const auth = {
