@@ -10,11 +10,11 @@ module.exports = {
         
         const empresa = await connection('empresas')
         .where('id', id)
-        .select('*');
+        .select('*')
         .first();
 
 
-        return res.json({teste: empresa, message:'aaaa'});
+        return res.json({ empresa });
     },
 
     async create(req, res) {
@@ -62,6 +62,8 @@ module.exports = {
                 orgao_emissor,
                 cidade,
                 uf,
+                latitude,
+                longitude,
                 bairro,
                 cep,
                 numero,
@@ -76,7 +78,7 @@ module.exports = {
                 digito,
             });
 
-            console.log(nome_empresa, url_imagem);
+            console.log(nome_empresa);
             return res.status(200).send({ message: "cadastrado", id });
             } else {
                 console.log('empresa ja cadastrada');
@@ -86,6 +88,26 @@ module.exports = {
             console.log(error);
             return res.status(400).send({ error: 'alguma coisa errada' });
         }   
+    },
+
+    async imagem(req, res){
+        try{ 
+            const {originalname: name, size, key, location: url = ''} = req.file;
+            const id_empresa = req.headers.authorization;
+
+            await connection('imagem').insert({
+                name, 
+                size, 
+                key,
+                url,
+                id_empresa,
+            });
+
+            return res.status(200).send({ message: 'Upload da imagem feita com sucesso' });
+        } catch(error) {
+            console.log(error);
+            return res.status(400).send({ error: 'Erro com o servidor. Tente novamente' });
+        }
     },
 
     async get_user(req, res){

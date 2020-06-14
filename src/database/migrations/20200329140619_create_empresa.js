@@ -23,9 +23,6 @@ exports.up = function(knex) {
         table.string('agencia').notNullable();
         table.string('conta').notNullable();
         table.string('digito').notNullable();
-        table.string('url_imagem').notNullable();
-        table.decimal('latitude').notNullable();
-        table.decimal('longitude').notNullable();
         table.string('updateCode');
         table.date('updateCode_expires');
     });
