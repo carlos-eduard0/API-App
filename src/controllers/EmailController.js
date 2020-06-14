@@ -50,7 +50,7 @@ module.exports = {
             });
         }
         catch(err){
-            return res.json({erro:err.message});  
+            return res.json({message:'erro',erro:err.message});  
         }
 
 	}
