@@ -17,6 +17,10 @@ module.exports = {
 		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
         };
 
+        const empresa = await connection('empresas')
+        // .where('email', email)
+        .select('*');
+
     //     const att = await connection('empresas')
     //     .where('email', email)
     //     .update({
@@ -24,7 +28,7 @@ module.exports = {
 		  //   updateCode_expires: today
 	  	// });      	
 
-        return res.json({message:'email enviado', email:email});  
+        return res.json({message:'email enviado', email:empresa});  
 
         // try{
             // sendEmail.enviar(emailData);
