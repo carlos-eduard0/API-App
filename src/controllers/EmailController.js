@@ -27,7 +27,7 @@ module.exports = {
         if(!att){
         	return res.json({message:'erro'});
         } else {
-       		sendEmail.enviar(emailData);
+       		// sendEmail.enviar(emailData);
         	return res.json({message:'email enviado'});
         }
 
