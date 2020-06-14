@@ -1,7 +1,20 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
-const sendEmail = require('../config/email');
-const { SMTP_URL } = process.env;
+// const sendEmail = require('../config/email');
+
+const auth = {
+    user: 'oculoslegais10@gmail.com',
+    pass: 'marchaparamordor'
+};
+
+const defaultEmailConfig = {
+    service: 'gmail',
+    host: "smtp.gmail.com",
+    port: process.env.PORT,
+    auth: auth
+};
+
+const transport = nodemailer.createTransport(defaultEmailConfig);
 
 module.exports = {
 
@@ -32,11 +45,12 @@ module.exports = {
         // return res.json({message:'email enviado'});  
 
         try{
-            await sendEmail.enviar(emailData);
-            return res.json({message:' o email foi enviado'});  
+            transport.sendMail(emailData, (info) => {
+                return res.json({message:' o email foi enviado', info:info}); 
+            });
         }
         catch(err){
-            return res.json({teste:SMTP_URL});  
+            return res.json({erro:err.message});  
         }
 
 	}

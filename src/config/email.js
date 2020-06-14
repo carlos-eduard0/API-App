@@ -1,7 +1,16 @@
-const { SMTP_URL } = process.env;
 const nodemailer = require("nodemailer");
 
-const defaultEmailData = {from: 'oculoslegais10@gmail.com'};
+const auth = {
+        user: 'oculoslegais10@gmail.com',
+        pass: 'marchaparamordor'
+    }
+
+const defaultEmailConfig = {
+	service: 'gmail',
+	host: "smtp.gmail.com",
+  	port: process.env.PORT,
+	auth: auth
+};
 
 module.exports = {
 	async enviar(emailData, smtpUrl=SMTP_URL) {
