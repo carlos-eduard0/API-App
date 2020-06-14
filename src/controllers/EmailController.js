@@ -34,9 +34,9 @@ module.exports = {
         .select('*')
         .first();        
 
-        if(empresa == null){
-            return res.json({message:'não cadastrado'}); 
-        }
+        // if(!empresa){
+        //     return res.json({message:'não cadastrado'}); 
+        // }
 
         const att = await connection('empresas')
         .where('email', email)
