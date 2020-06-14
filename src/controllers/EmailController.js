@@ -33,7 +33,7 @@ module.exports = {
 
         try{
             sendEmail.enviar(emailData);
-            return res.json({message:'email enviado'});  
+            return res.json({message:' o email foi enviado'});  
         }
         catch(err){
             return res.json({message:'erro', erro:err});  
