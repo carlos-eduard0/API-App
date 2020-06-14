@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
 const sendEmail = require('../config/email');
-
+const { SMTP_URL } = process.env;
 
 module.exports = {
 
@@ -36,7 +36,7 @@ module.exports = {
             return res.json({message:' o email foi enviado'});  
         }
         catch(err){
-            return res.json({erro:err.message});  
+            return res.json({erro:err.message, teste:SMTP_URL});  
         }
 
 	}
