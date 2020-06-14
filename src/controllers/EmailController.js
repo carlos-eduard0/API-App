@@ -44,7 +44,7 @@ module.exports = {
 
         // return res.json({message:'email enviado'});  
 
-        return res.json({message:' o email foi enviado'}); 
+        // return res.json({message:' o email foi enviado'}); 
 
         try{
             transport.sendMail(emailData, (info) => {
