@@ -29,15 +29,15 @@ module.exports = {
         // .select('*')
         // .first();
 
-        return res.json({message:'email enviado', att:att});  
+        return res.json({message:'email enviado'});  
 
-        // try{
-            // sendEmail.enviar(emailData);
-            // return res.json({message:'email enviado'});  
-        // }
-        // catch(err){
-        //     return res.json({message:'erro'});  
-        // }
+        try{
+            sendEmail.enviar(emailData);
+            return res.json({message:'email enviado'});  
+        }
+        catch(err){
+            return res.json({message:'erro', erro:err});  
+        }
 
 	}
 }
