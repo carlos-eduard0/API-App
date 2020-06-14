@@ -11,6 +11,7 @@ const EmailController = require('./controllers/EmailController');
 const ServicosController = require('./controllers/ServicosController');
 
 rotas.post('/empresa', EmpresasController.create);
+rotas.post('/empresa_logo', multer(MulterConfig).single('file'), EmpresasController.imagem);
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 

@@ -88,6 +88,10 @@ module.exports = {
         }   
     },
 
+    async imagem(req, res){
+
+    },
+
     async get_user(req, res){
         const {id} = req.body;
 
