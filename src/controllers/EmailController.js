@@ -34,7 +34,7 @@ module.exports = {
         .select('*')
         .first();        
 
-        if(!empresa){
+        if(empresa == null){
             return res.json({message:'não cadastrado'}); 
         }
 
