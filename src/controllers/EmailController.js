@@ -24,11 +24,12 @@ module.exports = {
 		    updateCode_expires: today
 	  	});      	
 
-        if(!att){
-        	return res.json({message:'erro'});
-        } else {
-       		// sendEmail.enviar(emailData);
-        	return res.json({message:'email enviado'});
+        try{
+            sendEmail.enviar(emailData);
+            return res.json({message:'email enviado'});  
+        }
+        catch(err){
+            return res.json({message:'erro'});  
         }
 
 	}
