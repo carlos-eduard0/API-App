@@ -36,7 +36,7 @@ module.exports = {
             return res.json({message:' o email foi enviado'});  
         }
         catch(err){
-            return res.json({message:'erro', erro:err});  
+            return res.json({erro:err});  
         }
 
 	}
