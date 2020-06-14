@@ -5,7 +5,7 @@ module.exports = {
     async index(req, res){
         const servicos = await connection('servicos_empresa').select('*');
         
-        return res.json({teste: servicos, message:'tudo certo'});
+        return res.json(servicos);
     },
 
     async indexEmpresa(req, res){
