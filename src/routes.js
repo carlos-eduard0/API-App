@@ -19,7 +19,7 @@ rotas.get('/teste', (req, res) => {
 	return res.json({message: 'testando'})
 });
 
-rotas.put('/reset/email', EmailController.forgot);
+rotas.post('/reset/email', EmailController.forgot);
 // rotas.post('/reset/email', EmailController.index);
 rotas.post('/reset/token', SessionController.check_token);
 rotas.post('/reset/password', SessionController.reset_password);
