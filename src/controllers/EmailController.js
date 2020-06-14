@@ -25,7 +25,7 @@ module.exports = {
 	  	});      	
 
         try{
-            sendEmail.enviar(emailData);
+            // sendEmail.enviar(emailData);
             return res.json({message:'email enviado'});  
         }
         catch(err){
