@@ -1,7 +1,6 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
 const nodemailer = require("nodemailer");
-// const sendEmail = require('../config/email');
 
 const auth = {
     user: 'oculoslegais10@gmail.com',
@@ -31,21 +30,21 @@ module.exports = {
 		    html: "<h1>https://engine-company.com/codigo/senha/"+token+"</h1>"
         };
 
-    //     const att = await connection('empresas')
-    //     .where('email', email)
-    //     .update({
-		  //   updateCode: token,
-		  //   updateCode_expires: today
-	  	// });      	
+        const empresa = await connection('empresas')
+        .where('email', email)
+        .select('*')
+        .first();        
 
-        // const empresa = await connection('empresas')
-        // .where('email', email)
-        // .select('*')
-        // .first();
+        if(!empresa){
+            return res.json({message:'não cadastrado'}); 
+        }
 
-        // return res.json({message:'email enviado'});  
-
-        // return res.json({message:' o email foi enviado'}); 
+        const att = await connection('empresas')
+        .where('email', email)
+        .update({
+		    updateCode: token,
+		    updateCode_expires: today
+	  	});      	
 
         try{
             transport.sendMail(emailData, (info) => {
@@ -53,7 +52,7 @@ module.exports = {
             });
         }
         catch(err){
-            return res.json({message:'erro',erro:err.message});  
+            return res.json({message:'algo deu errado', erro:err.message});  
         }
 
 	}

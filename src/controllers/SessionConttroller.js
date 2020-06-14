@@ -52,6 +52,7 @@ module.exports = {
     },
 
     async reset_password(req, res){
+        
         const {id, senha} = req.body;
         console.log(id);
 
@@ -65,7 +66,7 @@ module.exports = {
         .where('id', id)
         .select('*');
 
-        if(empresa != null){
+        if(empresa){
             const att = await connection('empresas')
             .where('id', id)
             .update({

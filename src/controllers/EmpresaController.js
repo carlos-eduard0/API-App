@@ -8,13 +8,15 @@ module.exports = {
     async index(req, res) {
         const id = req.headers.authorization;
         
-        const empresa = await connection('empresas')
-        .where('id', id)
-        .select('*')
-        .first();
-
-
-        return res.json({ empresa });
+        if(id){
+            const empresa = await connection('empresas')
+            .where('id', id)
+            .select('*')
+            .first();
+            return res.json({ empresa });
+        } else {
+            return res.json({ message: 'sem id'});
+        }
     },
 
     async create(req, res) {
