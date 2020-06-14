@@ -21,8 +21,7 @@ module.exports = {
 	async forgot(req, res){
 		const {email} = req.body
         const token = crypto.randomBytes(20).toString('HEX');
-        const date = new Date();
-		const today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+(date.getDate()+1);
+        const expires = Date.now() + 3600000
 
         const emailData = {
         	to: email,
@@ -43,7 +42,7 @@ module.exports = {
         .where('email', email)
         .update({
 		    updateCode: token,
-		    updateCode_expires: today
+		    updateCode_expires: expires
 	  	});      	
 
         try{

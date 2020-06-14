@@ -27,9 +27,7 @@ module.exports = {
 
     async check_token(req, res){
         const {updateCode} = req.body;
-        const date = new Date();
-        const today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+(date.getDate()+1);
-
+        const date = Date.now();
         const empresa = await connection('empresas')
         .where('updateCode', updateCode)
         .andWhere(function() {
@@ -52,7 +50,7 @@ module.exports = {
     },
 
     async reset_password(req, res){
-        
+
         const {id, senha} = req.body;
         console.log(id);
 
