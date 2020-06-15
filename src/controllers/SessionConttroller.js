@@ -65,16 +65,20 @@ module.exports = {
         .select('*');
 
         if(empresa){
-            const att = await connection('empresas')
-            .where('id', id)
-            .update({
-                senha: hash
-                // updateCode: null,
-                // updateCode_expires: null
-            });
+            try{ 
+                await connection('empresas')
+                .where('id', id)
+                .update({
+                    senha: hash,
+                    updateCode: null,
+                    updateCode_expires: null
+                });
 
-            res.status(200).send({message: 'senha atualizada', user:att});
-
+                res.status(200).send({message: 'senha atualizada'});
+            }
+            catch(err){
+                return res.json({message:'não atualizou', erro:err});
+            }
         } else {
             console.log('algo de errado');
             res.status(404).json('usuario inexistente');
