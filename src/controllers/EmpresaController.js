@@ -12,6 +12,7 @@ module.exports = {
             const empresa = await connection('empresas')
             .where('id', id)
             .select('*')
+            .first()
             return res.json(empresa);
         } else {
             return res.json({ message: 'sem id'});
