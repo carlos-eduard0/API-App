@@ -90,6 +90,20 @@ module.exports = {
             return res.status(400).send({ error: 'alguma coisa errada' });
         }   
     },
+   
+    async header(req, res){
+        const id_empresa = req.headers.authorization;
+
+        const empresa = await connection('empresas')
+                .where('id', id_empresa)
+                .select('nome_empresa')
+                .first();
+        const url = await connection('imagemlogo')
+                .where('id_empresa', id_empresa)
+                .select('url')
+                .first();
+        return res.json([empresa, url]);
+    },
 
     async get_user(req, res){
         const {id} = req.body;
