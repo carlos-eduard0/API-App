@@ -16,7 +16,7 @@ rotas.post('/empresa', EmpresasController.create);
 rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), async(req, res) => {
 	try{ 
 		const {originalname: name, size, key, location: url = ''} = req.file;
-		const id_empresa = req.params;
+		const id_empresa = req.params.id_empresa;
 		
 
 		await connection('imagemlogo').insert({
