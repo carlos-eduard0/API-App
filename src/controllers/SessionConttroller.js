@@ -39,7 +39,7 @@ module.exports = {
 
         if(parseInt(updateCode_expires) < today){
             res.status(200).send({
-                message:'este link ja expirou ou é inválido'
+                message:'este link ja expirou ou é inválido',
                 updateCode_expires:updateCode_expires
             });            
         } else {
