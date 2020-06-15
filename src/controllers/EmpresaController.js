@@ -13,6 +13,8 @@ module.exports = {
             .where('id', id)
             .select('*')
             .first();
+
+            console.log(empresa)
             return res.json({ empresa });
         } else {
             return res.json({ message: 'sem id'});
@@ -103,7 +105,10 @@ module.exports = {
                 .where('id_empresa', id_empresa)
                 .select('url')
                 .first();
-        return res.json([empresa, url]);
+        console.log({empresa, url});
+
+        return res.json({empresa, url});
+
     },
 
     async get_user(req, res){
