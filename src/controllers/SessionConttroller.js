@@ -69,7 +69,7 @@ module.exports = {
                 await connection('empresas')
                 .where('id', id)
                 .update({
-                    senha: hash,
+                    senha: senha,
                     updateCode: null,
                     updateCode_expires: null
                 });
