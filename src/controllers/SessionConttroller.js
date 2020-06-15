@@ -27,7 +27,7 @@ module.exports = {
 
     async check_token(req, res){
         const {updateCode} = req.body;
-        const date = Date.now();
+        const today = Date.now();
 
 
         const updateCode_expires = await connection('empresas')
