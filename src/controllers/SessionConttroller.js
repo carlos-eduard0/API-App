@@ -46,7 +46,7 @@ module.exports = {
             });            
         } else {
             res.status(200).send({
-                id: empresa.id,
+                id: empresa,
                 message: 'link ta ok'
             });
         };
