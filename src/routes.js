@@ -13,10 +13,10 @@ const connection = require('./database/connection');
 
 rotas.post('/empresa', EmpresasController.create);
 
-rotas.post('/empresaLogo', multer(MulterConfig).single('file'), async(req, res) => {
+rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), async(req, res) => {
 	try{ 
 		const {originalname: name, size, key, location: url = ''} = req.file;
-		const id_empresa = req.headers.Authorization;
+		const id_empresa = req.params;
 		
 
 		await connection('imagemlogo').insert({
