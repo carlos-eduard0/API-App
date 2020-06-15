@@ -60,8 +60,6 @@ module.exports = {
         const salt = bcrypt.genSaltSync(saltRounds);
         const hash = bcrypt.hashSync(senha, salt);
 
-
-
         const empresa = await connection('empresas')
         .where('id', id)
         .select('*');
@@ -70,13 +68,12 @@ module.exports = {
             const att = await connection('empresas')
             .where('id', id)
             .update({
-                senha: hash,
-                updateCode: null,
-                updateCode_expires: null
+                senha: hash
+                // updateCode: null,
+                // updateCode_expires: null
             });
 
-            console.log(att);
-            res.status(200).send({message: 'senha atualizada'});
+            res.status(200).send({message: 'senha atualizada', user:att});
 
         } else {
             console.log('algo de errado');
