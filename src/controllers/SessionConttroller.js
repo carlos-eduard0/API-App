@@ -32,10 +32,11 @@ module.exports = {
 
         const updateCode_expires = await connection('empresas')
         .where('updateCode', updateCode)
-        // .andWhere(function() {
-        //   this.where('updateCode_expires', '>=', today);
-        // })
         .select('updateCode_expires');
+
+        const id = await connection('empresas')
+        .where('updateCode', updateCode)
+        .select('id');
 
         if(parseInt(updateCode_expires) < today){
             res.status(200).send({
@@ -44,6 +45,7 @@ module.exports = {
             });            
         } else {
             res.status(200).send({
+                id: id,
                 message: 'link ta ok'
             });
         };
