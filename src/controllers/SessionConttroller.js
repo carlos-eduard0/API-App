@@ -62,7 +62,8 @@ module.exports = {
 
         const empresa = await connection('empresas')
         .where('id', id)
-        .select('*');
+        .select('*')
+        .first();
 
         if(empresa){
             try{ 
@@ -74,7 +75,7 @@ module.exports = {
                     updateCode_expires: null
                 });
 
-                res.status(200).send({message: 'senha atualizada'});
+                res.status(200).send({message: 'senha atualizada', senha:senha, id:id});
             }
             catch(err){
                 return res.json({message:'não atualizou', erro:err});
