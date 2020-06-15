@@ -36,6 +36,7 @@ rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), asyn
 
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
+rotas.get('/header', EmpresasController.header);
 
 rotas.get('/teste', (req, res) => {
 	return res.json({message: 'testando'})
