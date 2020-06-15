@@ -9,9 +9,29 @@ const EmpresasController = require('./controllers/EmpresaController');
 const SessionController = require('./controllers/SessionConttroller');
 const EmailController = require('./controllers/EmailController');
 const ServicosController = require('./controllers/ServicosController');
+const connection = require('./database/connection');
 
 rotas.post('/empresa', EmpresasController.create);
-rotas.post('/empresaLogo', multer(MulterConfig).single('file'), EmpresasController.imagem);
+rotas.post('/empresaLogo', multer(MulterConfig).single('file'), async(req, res) => {
+	try{ 
+		const {originalname: name, size, key, location: url = ''} = req.file;
+		const id_empresa = req.headers.authorization;
+		
+
+		await connection('imagemlogo').insert({
+			name, 
+			size, 
+			key,
+			url,
+			id_empresa,
+		});
+
+		return res.status(200).send({ message: 'Upload da imagem feita com sucesso' });
+	} catch(error) {
+		console.log(error);
+		return res.status(400).send({ error: 'Erro com o servidor. Tente novamente' });
+	}
+});
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 

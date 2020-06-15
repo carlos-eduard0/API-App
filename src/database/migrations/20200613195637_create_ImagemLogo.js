@@ -3,7 +3,6 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('name').notNullable();
         table.string('size').notNullable();
-        table.string('key').notNullable();
         table.string('url').notNullable();
         table.string('id_empresa').notNullable();
 
