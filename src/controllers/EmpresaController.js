@@ -12,8 +12,10 @@ module.exports = {
             const empresa = await connection('empresas')
             .where('id', id)
             .select('*')
-            .first()
-            return res.json(empresa);
+            .first();
+
+            console.log(empresa)
+            return res.json({ empresa });
         } else {
             return res.json({ message: 'sem id'});
         }
@@ -105,7 +107,10 @@ module.exports = {
                 .where('id_empresa', id_empresa)
                 .select('url')
                 .first();
-        return res.json([empresa, url]);
+        console.log({empresa, url});
+
+        return res.json({empresa, url});
+
     },
 
     async get_user(req, res){
