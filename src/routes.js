@@ -17,7 +17,7 @@ rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), asyn
 	try{ 
 		const {originalname: name, size, key, location: url = ''} = req.file;
 		const id_empresa = req.params.id_empresa;
-		
+		//corno
 		await connection('imagemlogo').insert({
 			name, 
 			size, 
