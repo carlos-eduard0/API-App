@@ -5,6 +5,13 @@ const connection = require('../database/connection');
 
 module.exports = {
 
+    async todas(req, res){
+        const empresa = await connection('empresas')
+        .select('*');
+
+        return res.json({empresa});
+    }
+
     async index(req, res) {
         const id = req.headers.authorization;
         

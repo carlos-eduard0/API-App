@@ -13,6 +13,7 @@ const connection = require('./database/connection');
 
 rotas.post('/empresa', EmpresasController.create);
 
+
 rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), async(req, res) => {
 	try{ 
 		const {originalname: name, size, key, location: url = ''} = req.file;
@@ -32,6 +33,7 @@ rotas.post('/empresaLogo/:id_empresa', multer(MulterConfig).single('file'), asyn
 	}
 });
 
+rotas.get('/empresas', EmpresasController.todas);
 rotas.post('/empresa/get', EmpresasController.get_user);
 rotas.get('/empresa', EmpresasController.index);
 rotas.get('/header', EmpresasController.header);
