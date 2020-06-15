@@ -15,7 +15,7 @@ module.exports = {
             .first();
 
             console.log(empresa)
-            return res.json({ empresa });
+            return res.json(empresa);
         } else {
             return res.json({ message: 'sem id'});
         }
