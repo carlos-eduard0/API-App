@@ -10,7 +10,7 @@ module.exports = {
         .select('*');
 
         return res.json({empresa});
-    }
+    },
 
     async index(req, res) {
         const id = req.headers.authorization;
