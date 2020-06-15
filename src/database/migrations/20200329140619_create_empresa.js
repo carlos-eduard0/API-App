@@ -24,7 +24,7 @@ exports.up = function(knex) {
         table.string('conta').notNullable();
         table.string('digito').notNullable();
         table.string('updateCode');
-        table.integer('updateCode_expires');
+        table.string('updateCode_expires');
     });
 };
 

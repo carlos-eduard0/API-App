@@ -28,25 +28,25 @@ module.exports = {
     async check_token(req, res){
         const {updateCode} = req.body;
         const date = Date.now();
-        const empresa = await connection('empresas')
+
+
+        const updateCode_expires = await connection('empresas')
         .where('updateCode', updateCode)
-        .andWhere(function() {
-          this.where('updateCode_expires', '>=', today);
-        })
-        .select('*')
-        .first();
+        // .andWhere(function() {
+        //   this.where('updateCode_expires', '>=', today);
+        // })
+        .select('updateCode_expires');
 
-
-        if(empresa == null){
+        if(parseInt(updateCode_expires) < today){
             res.status(200).send({
                 message:'este link ja expirou ou é inválido'
-            });
+            });            
         } else {
             res.status(200).send({
                 id: empresa.id,
                 message: 'link ta ok'
             });
-        }
+        };
     },
 
     async reset_password(req, res){
