@@ -35,8 +35,7 @@ module.exports = {
         .select('updateCode_expires');
 
         const empresa = await connection('empresas')
-        .where('updateCode', updateCode)
-        .select('*');
+        .where('updateCode', updateCode);
 
         if(parseInt(updateCode_expires) < today){
             res.status(200).send({
