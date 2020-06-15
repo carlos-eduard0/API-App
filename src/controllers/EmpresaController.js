@@ -18,7 +18,7 @@ module.exports = {
             return res.json({ message: 'sem id'});
         }
         //ok
-        //teste
+        //test
     },
 
     async create(req, res) {
