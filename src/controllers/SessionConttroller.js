@@ -68,6 +68,7 @@ module.exports = {
             try{ 
                 await connection('empresas')
                 .where('id', id)
+                .select('*')
                 .update({
                     senha: senha,
                     updateCode: null,
