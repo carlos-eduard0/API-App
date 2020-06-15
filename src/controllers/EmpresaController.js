@@ -92,26 +92,6 @@ module.exports = {
         }   
     },
 
-    async imagem(req, res){
-        try{ 
-            const {originalname: name, size, key, location: url = ''} = req.file;
-            const id_empresa = req.headers.authorization;
-
-            await connection('imagem').insert({
-                name, 
-                size, 
-                key,
-                url,
-                id_empresa,
-            });
-
-            return res.status(200).send({ message: 'Upload da imagem feita com sucesso' });
-        } catch(error) {
-            console.log(error);
-            return res.status(400).send({ error: 'Erro com o servidor. Tente novamente' });
-        }
-    },
-
     async get_user(req, res){
         const {id} = req.body;
 
