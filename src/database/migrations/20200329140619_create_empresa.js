@@ -16,8 +16,8 @@ exports.up = function(knex) {
         table.string('rua').notNullable();
         table.string('complemento');
         table.string('estado');
-        table.decimal('latitude').notNullable();
-        table.decimal('longitude').notNullable();
+        table.string('latitude').notNullable();
+        table.string('longitude').notNullable();
         table.string('senha').notNullable();
         table.string('updateCode');
         table.string('updateCode_expires');
