@@ -19,10 +19,6 @@ exports.up = function(knex) {
         table.decimal('latitude').notNullable();
         table.decimal('longitude').notNullable();
         table.string('senha').notNullable();
-        table.string('nome_banco').notNullable();
-        table.string('agencia').notNullable();
-        table.string('conta').notNullable();
-        table.string('digito').notNullable();
         table.string('updateCode');
         table.string('updateCode_expires');
     });
