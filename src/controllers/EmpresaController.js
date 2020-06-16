@@ -85,7 +85,7 @@ module.exports = {
                     senha: hash,
                     estado,
                 });
-
+// ok
                 console.log(nome_empresa);
                 return res.send({ message: "cadastrado", id });
             } else {
