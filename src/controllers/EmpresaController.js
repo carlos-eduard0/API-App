@@ -87,7 +87,7 @@ module.exports = {
                 });
 
                 console.log(nome_empresa);
-                return res.status(200).send({ message: "cadastrado", id });
+                return res.send({ message: "cadastrado", id });
             } else {
                 console.log('empresa ja cadastrada');
                 return res.status(200).send({ message: "Empresa ja cadastrada" });
