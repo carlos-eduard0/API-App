@@ -53,7 +53,7 @@ module.exports = {
                 }
 
             const empresa = await connection('empresas')
-                .where('nome_empresa', nome_empresa)
+                .where('cnpj', cnpj)
                 .select('*')
                 .first() || await connection('empresas')
                     .where('email', email)
@@ -90,7 +90,7 @@ module.exports = {
                 return res.send({ message: "cadastrado", id });
             } else {
                 console.log('empresa ja cadastrada');
-                return res.status(200).send({ message: "Empresa ja cadastrada" });
+                return res.send({ message: "Empresa ja cadastrada" });
             }
         } catch (error) {
             console.log(error);
