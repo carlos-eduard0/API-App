@@ -10,12 +10,12 @@ exports.up = function(knex) {
         table.string('rg').notNullable();
         table.string('orgao_emissor').notNullable();      
         table.string('cidade').notNullable();
-        table.string('uf', 2).notNullable();
         table.string('bairro').notNullable();
         table.string('cep').notNullable();
         table.string('numero').notNullable();
         table.string('rua').notNullable();
         table.string('complemento');
+        table.string('estado');
         table.decimal('latitude').notNullable();
         table.decimal('longitude').notNullable();
         table.string('senha').notNullable();
