@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.string('size').notNullable();
         table.string('url').notNullable();
         table.string('id_empresa').notNullable();
-
+        table.string('key').notNullable();
         table.foreign('id_empresa').references('id').inTable('empresas');
     });
 };
