@@ -18,9 +18,9 @@ module.exports = {
 
         bcrypt.compare (senha, empresa.senha, function (err, result ) { 
             if (result == true) { 
-                return res.json(empresa.id);
+                return res.json({empresa:empresa.id, message:'logado'});
             } else { 
-                return 'error';
+                return res.json({message:'error'});
             } 
           }); 
     },
