@@ -13,12 +13,12 @@ module.exports = {
         .first();
 
         if(!empresa) {
-            return 'error';
+            return res.send({ message: "n existe"});
         }
 
         bcrypt.compare (senha, empresa.senha, function (err, result ) { 
             if (result == true) { 
-                return res.json({empresa:empresa.id, message:'logado'});
+                return res.send({empresa:empresa.id, message:'logado'});
             } else { 
                 return res.json({message:'error'});
             } 
